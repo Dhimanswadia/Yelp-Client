@@ -56,11 +56,13 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
+    @IBOutlet weak var Cancel: UIBarButtonItem!
     
     @IBAction func onCancelButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBOutlet weak var OnSearchButton: UIBarButtonItem!
     
     @IBAction func onSearchButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)

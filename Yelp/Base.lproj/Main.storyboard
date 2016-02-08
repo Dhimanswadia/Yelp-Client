@@ -206,7 +206,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jrl-ye-doH">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jrl-ye-doH">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -217,16 +217,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="switchLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FF-WB-LvF">
-                                                    <rect key="frame" x="18" y="11" width="91" height="21"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nY6-sT-QQe">
+                                                    <rect key="frame" x="251" y="6" width="51" height="31"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="switchLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FF-WB-LvF">
+                                                    <rect key="frame" x="8" y="11" width="91" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nY6-sT-QQe">
-                                                    <rect key="frame" x="251" y="6" width="51" height="31"/>
-                                                </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nY6-sT-QQe" secondAttribute="trailing" constant="12" id="OlF-Le-9sd"/>
+                                                <constraint firstItem="4FF-WB-LvF" firstAttribute="leading" secondItem="0il-Wx-Lk4" secondAttribute="leading" constant="8" id="bNG-gu-3Tu"/>
+                                                <constraint firstItem="4FF-WB-LvF" firstAttribute="top" secondItem="0il-Wx-Lk4" secondAttribute="top" constant="11" id="esl-As-gcd"/>
+                                                <constraint firstItem="nY6-sT-QQe" firstAttribute="top" secondItem="0il-Wx-Lk4" secondAttribute="topMargin" constant="-2" id="kVz-7y-zcX"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="onSwitch" destination="nY6-sT-QQe" id="Rzj-C3-FBM"/>
@@ -237,6 +243,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dw4-6N-LRU" firstAttribute="top" secondItem="jrl-ye-doH" secondAttribute="bottom" id="4R4-xr-nmh"/>
+                            <constraint firstItem="jrl-ye-doH" firstAttribute="leading" secondItem="eQQ-jY-IEt" secondAttribute="leading" id="Biy-oq-L6v"/>
+                            <constraint firstAttribute="trailing" secondItem="jrl-ye-doH" secondAttribute="trailing" id="uFA-dU-YJG"/>
+                            <constraint firstItem="jrl-ye-doH" firstAttribute="top" secondItem="bq5-Ml-9Fy" secondAttribute="bottom" id="yvd-rx-A9J"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QtF-0L-2k2">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="9hx-BT-iW9">
@@ -244,9 +256,12 @@
                                 <rect key="frame" x="16" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="onCancelButton:" destination="gNA-sj-Qqi" eventType="touchUpInside" id="hym-9w-W0X"/>
+                                </connections>
                             </button>
                             <connections>
-                                <action selector="onCancelButton:" destination="gNA-sj-Qqi" id="UpM-UZ-aqI"/>
+                                <action selector="onCancelButton:" destination="gNA-sj-Qqi" id="hSa-ne-ays"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Ihm-Yr-rBX">
@@ -254,13 +269,18 @@
                                 <rect key="frame" x="233" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="onSearchButton:" destination="gNA-sj-Qqi" eventType="touchUpInside" id="45l-UR-u7V"/>
+                                </connections>
                             </button>
                             <connections>
-                                <action selector="onSearchButton:" destination="gNA-sj-Qqi" id="WM0-Hj-jqe"/>
+                                <action selector="onSearchButton:" destination="gNA-sj-Qqi" id="hoS-p5-Sa5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="Cancel" destination="9hx-BT-iW9" id="7ue-rn-6u0"/>
+                        <outlet property="OnSearchButton" destination="Ihm-Yr-rBX" id="E1W-ub-pvv"/>
                         <outlet property="tableView" destination="jrl-ye-doH" id="7YQ-V3-wnI"/>
                     </connections>
                 </viewController>
